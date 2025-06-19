@@ -1,0 +1,26 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: vehiculo-service
+    #zipkin: http://localhost:9411
+  datasource:
+    url: jdbc:postgresql://localhost:5432/BaseDemoRNP2
+    username: postgres
+    password: 123
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+versionapi: v1
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8762/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

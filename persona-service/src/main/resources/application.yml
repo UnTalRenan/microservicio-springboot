@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: person-service
+    #zipkin: http://localhost:9411
+  datasource:
+    url: jdbc:mysql://localhost:3306/BaseDemoRNP
+    username: root
+    password: 1234
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+versionapi: v1
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8762/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
